@@ -20,12 +20,14 @@ var (
 	contractAddr = binding.NewString()
 )
 
+func init() {
+	_ = rpc.Set("https://eth-goerli.public.blastapi.io")
+	_ = contractAddr.Set("0x8ece72a85879e2c289b32f38ea35c307b8e50d1c")
+}
+
 func main() {
 	myApp := app.New()
 	w := myApp.NewWindow("Erc721A contract query")
-
-	_ = rpc.Set("https://eth-goerli.public.blastapi.io")
-	_ = contractAddr.Set("0x8ece72a85879e2c289b32f38ea35c307b8e50d1c")
 
 	rpcEntry, contractAddressEntry := conditionFrom()
 
